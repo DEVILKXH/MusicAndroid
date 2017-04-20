@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">HMusic</string>
+    <string name="hmusic_login_btn">登  录</string>
+    <string name="hmusic_register_btn">注册</string>
+    <string name="hmusic_username">username</string>
+    <string name="hmusic_username_hint">请输入帐号</string>
+    <string name="hmusic_password_hint">请输入密码</string>
+    <string name="hmusic_checkcode_hint">请输入验证码</string>
+    <string name="hmusic_register">新用户注册</string>
+    <string name="hmusic_login">已有账号立即登录</string>
+    <string name="hmusic_forget_password">忘记密码?</string>d
+    <string name="hmusic_agree">我已阅读并同意相关条款</string>
+    <string name="hmusic_center">个人中心</string>
+    <string name="hmusic_setting">设置</string>
+    <string name="hmusic_logout">退出</string>
+
+    <string name="title_activity_logo_screen">LogoScreen</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="title_activity_main_music">MainMusicActivity</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_test">Test</string>
+</resources>

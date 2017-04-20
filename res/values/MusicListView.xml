@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="music_list">
+        <item>本地音乐</item>
+        <item>最近播放</item>
+        <item>下载管理</item>
+        <item>我的收藏</item>
+    </string-array>
+</resources>
