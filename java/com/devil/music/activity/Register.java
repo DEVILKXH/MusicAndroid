@@ -2,10 +2,7 @@ package com.devil.music.activity;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
-import android.provider.Settings;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -13,7 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.devil.music.R;
-import com.devil.music.common.Const;
+import com.devil.music.common.ConstData;
 import com.devil.music.services.CheckCodeServices;
 import com.devil.music.utils.StringUtils;
 
@@ -52,7 +49,7 @@ public class Register extends Activity implements View.OnClickListener {
                 break;
             case R.id.register:
                 if(!active){
-                    Toast.makeText(Register.this, Const.IMPORTANT_TREATY, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Register.this, ConstData.IMPORTANT_TREATY, Toast.LENGTH_SHORT).show();
                     return ;
                 }
                 TextView userName = (TextView) findViewById(R.id.username);
@@ -62,11 +59,11 @@ public class Register extends Activity implements View.OnClickListener {
                 String password = passWord.getText().toString();
                 String checkcode = checkCodes.getText().toString();
                 if (StringUtils.isNullOrBlank(username)){
-                    Toast.makeText(Register.this, Const.USERNAME_NULL_ERROR, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Register.this, ConstData.USERNAME_NULL_ERROR, Toast.LENGTH_SHORT).show();
                     return ;
                 }
                 if(StringUtils.isNullOrBlank(password)){
-                    Toast.makeText(Register.this, Const.PASSEORD_NULL_ERROR, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Register.this, ConstData.PASSEORD_NULL_ERROR, Toast.LENGTH_SHORT).show();
                     return ;
                 }
                 Toast.makeText(Register.this,username,Toast.LENGTH_SHORT).show();

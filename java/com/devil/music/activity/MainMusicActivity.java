@@ -1,5 +1,6 @@
 package com.devil.music.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.widget.DrawerLayout;
@@ -14,15 +15,14 @@ import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
 import com.devil.music.R;
-import com.devil.music.common.Const;
+import com.devil.music.common.ConstData;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 
-public class MainMusicActivity extends FragmentActivity implements View.OnClickListener {
+public class MainMusicActivity extends FragmentActivity implements View.OnClickListener,AdapterView.OnItemClickListener{
     private ImageView msettingBtn = null;
     private ImageView msearch = null;
     private ImageView msearchBtn = null;
@@ -77,14 +77,14 @@ public class MainMusicActivity extends FragmentActivity implements View.OnClickL
         searchLayout = (LinearLayout) findViewById(R.id.searchLayout);
         listView = (ListView) findViewById(R.id.music_list_type);
         List<Map<String,Object>> listItemTypes = new ArrayList<Map<String, Object>>();
-        for(int i = 0 ; i < Const.musicTypes.length; i++){
+        for(int i = 0; i < ConstData.musicTypes.length; i++){
             Map<String,Object> itemTypes = new HashMap<String,Object>();
-            itemTypes.put("music_icon",Const.imageids[i]);
-            itemTypes.put("music_text",Const.musicTypes[i]);
+            itemTypes.put("music_icon", ConstData.imageids[i]);
+            itemTypes.put("music_text", ConstData.musicTypes[i]);
             listItemTypes.add(itemTypes);
         }
         SimpleAdapter simpleAdapter = new SimpleAdapter(this,listItemTypes,
-                R.layout.muslic_list_layout,
+                R.layout.muslic_typelist_layout,
                 new String[]{"music_icon","music_text"},
                 new int[]{R.id.music_icon,R.id.music_text});
         listView.setAdapter(simpleAdapter);
@@ -95,12 +95,7 @@ public class MainMusicActivity extends FragmentActivity implements View.OnClickL
         msearch.setOnClickListener(this);
         mback.setOnClickListener(this);
         msearchBtn.setOnClickListener(this);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                System.out.print(Const.musicTypes[position]);
-            }
-        });
+        listView.setOnItemClickListener(this);
     }
 
     @Override
@@ -119,7 +114,24 @@ public class MainMusicActivity extends FragmentActivity implements View.OnClickL
             }
         }
         if(!flag){
-            super.onBackPressed();
+//            super.onBackPressed();
+        }
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        String musicType = ConstData.musicTypes[position];
+        switch(musicType){
+            case ConstData.LOCALMUSIC:
+                Intent intent = new Intent(this,LocalMusicList.class);
+                startActivity(intent);
+                break;
+            case ConstData.RECENTMUSILC:
+                break;
+            case ConstData.DOWNLOAD:
+                break;
+            case ConstData.COLLECTION:
+                break;
         }
     }
 }

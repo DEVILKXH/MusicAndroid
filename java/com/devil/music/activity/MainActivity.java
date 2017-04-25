@@ -8,13 +8,11 @@ import android.os.Looper;
 import android.os.Message;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.devil.music.R;
-import com.devil.music.common.Const;
-import com.devil.music.fragment.MainFragment;
+import com.devil.music.common.ConstData;
 import com.devil.music.utils.StringUtils;
 
 
@@ -35,19 +33,19 @@ public class MainActivity extends Activity implements View.OnClickListener{
                         String password = bundle.getString("password");
 
                         if (StringUtils.isNullOrBlank(username)){
-                            Toast.makeText(MainActivity.this, Const.USERNAME_NULL_ERROR, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity.this, ConstData.USERNAME_NULL_ERROR, Toast.LENGTH_SHORT).show();
                             return ;
                         }
                         if(StringUtils.isNullOrBlank(password)){
-                            Toast.makeText(MainActivity.this, Const.PASSEORD_NULL_ERROR, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity.this, ConstData.PASSEORD_NULL_ERROR, Toast.LENGTH_SHORT).show();
                             return ;
                         }
                         if("admin".equals(username) && "admin".equals(password)){
-                            Toast.makeText(MainActivity.this,Const.LOGIN_SUCCESS,Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity.this, ConstData.LOGIN_SUCCESS,Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(MainActivity.this,MainMusicActivity.class);
                             startActivity(intent);
                         }else{
-                            Toast.makeText(MainActivity.this,Const.COUNT_ERROR,Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity.this, ConstData.COUNT_ERROR,Toast.LENGTH_SHORT).show();
                         }
                     }
                 }
